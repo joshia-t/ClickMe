@@ -43,7 +43,7 @@
                 	window.nama = nama;
                     text2 = "Dari: " + author + ", untuk: " + window.nama + ".";
                     text4 = "I Love U, " + window.nama + "!";         
-                	await swals.fire(`Hai, ${nama}! &#10084;&#65039;`);
+                	await swals.fire(`Ok, ${nama}! &#10084;&#65039;`);
                     await swals.fire(`Sekarang lihat ini ya &#10084;&#65039;`);
                     ketik();showDiv();showFt();
                     document.getElementById("namamu").innerHTML = "Halo, " + nama + "!";                    
@@ -56,44 +56,44 @@
             mulai()
             async function lanjutan(){
                     var { value: sayang } = await swals.fire({
-                        title: `Sebelumnya, ${nama} sayang gak sama ${author} :(`,
+                        title: `Sebelumnya, ${nama}, kamu bahagia gak?`,
                         showDenyButton: true,
                         showCancelButton: false,
-                        confirmButtonText: 'Sayang',
-                        denyButtonText: `Gak sayang`,
+                        confirmButtonText: 'Bahagia',
+                        denyButtonText: 'Gak Bahagia',
                         allowOutsideClick: false,
                     }).then((result) => {
                         if (result.isConfirmed) {
-                             window.sayang = "sayang";lanjutan2();    
-                        } else if (result.isDenied) {window.sayang = "enggak sayang";window.persen = "%3A%2F";Swal.fire('Yaudah deh:(');whs();}})}
+                             window.sayang = "bahagia";lanjutan2();    
+                        } else if (result.isDenied) {window.sayang = "enggak bahagia";window.persen = "%3A%2F";Swal.fire('Kalau gak bahagia, tenang, pasti nanti ada saatnya untuk bahagia kok');whs();}})}
   
                     async function lanjutan2(){
-                        var { value: persen } = await swals.fire({
-                            title: 'Seberapa sayang?',
-                            icon: 'question',
-                            input: 'range',
-                            inputLabel: 'Antara 90-100% ya',
-                            inputAttributes: {
-                                min: 90,
-                                max: 100,
-                            },
-                            allowOutsideClick: false,
-                            inputValue: 90
-                        });
+                        //var { value: persen } = await swals.fire({
+                        //    title: 'Seberapa sayang?',
+                        //    icon: 'question',
+                        //    input: 'range',
+                        //    inputLabel: 'Antara 90-100% ya',
+                        //    inputAttributes: {
+                        //        min: 90,
+                        //        max: 100,
+                        //    },
+                        //    allowOutsideClick: false,
+                        //    inputValue: 90
+                        //});
                         if(persen){
                         	window.persen = persen + '%25';
-                        	await swals.fire(`Maacii udah sayang sama ${author} ${persen}%`);
+                        	await swals.fire(`Tetap bahagia fren!`);
                             iloveu();siap();whs();
                             }
                         }
-                        function bukaWa(){window.location = "https://api.whatsapp.com/send?phone=&text=Hai,%20" + "*" + nama + "*" + " udah bacain semuanya" + "%0A%0A" + "*" + nama + "*" + "%20" + window.sayang + " sama kamu " + "*" + window.persen + "*" + "%0A%0A" + dateTime;}
+                        function bukaWa(){window.location = "https://api.whatsapp.com/send?phone=&text=Hai,%20" + "*" + nama + "*" + " udah baca " + "%0A%0A" + "*" + nama + "*" + "%20" + window.sayang "*" + "%0A%0A" + dateTime;}
 </script>
     <script>
   var i=0,text;
-  text = "Bahkan gula pun akan kalah manisnya ketika kamu tersenyum kepadaku."
+  text = "Dialy reminder! You are a strong person, you can overcome anything, you are a very beautiful person and you deserve things that are just as beautiful."
   var u=0,text2;//Text2 ada di if(nama)  
   var o=0,text3;
-  text3 = "Lihat ini sayang...                                 "
+  text3 = "Remember to take care of yourself, sometimes you forgot because you're too busy taking care of other people. You are important too.                 "
   var a=0,text4;//Text4 ada di if(nama)
 </script>
   </body>
