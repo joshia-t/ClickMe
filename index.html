@@ -52,15 +52,32 @@
                 window.nama = nama;
                 text2 = "Dari: " + author + ", untuk: " + window.nama + ".";
                 text4 = "I Love U, " + window.nama + "!";
+                shouldcontinue = true;
                 if (preset) {
-                    await swals.fire(`Halo lagi ${nama}! &#10084;&#65039;`);
+                    await swals.fire({
+                        title: `Halo lagi ${nama}! &#10084;&#65039;`,
+                        showDenyButton: true,
+                        showCancelButton: false,
+                        confirmButtonText: 'Halo',
+                        denyButtonText: `Bukan ${nama}`,
+                        allowOutsideClick: false,
+                    }).then((result) => {
+                        if (result.isDenied) {
+                            localStorage.removeItem("namaKamu");
+                            shouldcontinue = false;
+                        }
+                    })
                 } else {
                     await swals.fire(`Ok, ${nama}! &#10084;&#65039;`);
                 }
-                play();
-                await swals.fire(`Sekarang lihat ini ya &#10084;&#65039;`);
-                ketik(); showDiv(); showFt();
-                document.getElementById("namamu").innerHTML = "Halo, " + nama + "!";
+                if (shouldcontinue) {
+                    play();
+                    await swals.fire(`Sekarang lihat ini ya &#10084;&#65039;`);
+                    ketik(); showDiv(); showFt();
+                    document.getElementById("namamu").innerHTML = "Halo, " + nama + "!";
+                } else {
+                    mulai();
+                }
             } else {
                 await swals.fire('Isi namanya ayanggg');
                 await swals.fire('Gak boleh kosong');
